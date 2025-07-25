@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="A.css">
+    <link rel="icon" href="data:,">
+
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1>Weather Dashboard</h1>
+            <p class="subtitle">Get real-time weather information</p>
+        </header>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-container">
+                <input type="text" id="location-input" placeholder="Enter city name (e.g., New York, London)">
+                <button id="search-btn" class="btn primary">
+                    <span class="search-icon">🔍</span>
+                    Search
+                </button>
+            </div>
+            <button id="current-location-btn" class="btn secondary">
+                <span class="location-icon">📍</span>
+                Use My Location
+            </button>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Fetching weather data...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error-message" class="error-message hidden">
+            <span class="error-icon">⚠️</span>
+            <p id="error-text">Something went wrong. Please try again.</p>
+        </div>
+
+        <!-- Weather Display Section -->
+        <div id="weather-display" class="weather-display hidden">
+            <!-- Current Weather Card -->
+            <div class="weather-card main-weather">
+                <div class="weather-header">
+                    <div class="location-info">
+                        <h2 id="city-name">City Name</h2>
+                        <p id="country-name">Country</p>
+                        <p id="current-date"></p>
+                    </div>
+                    <div class="weather-icon">
+                        <img id="weather-img" src="" alt="Weather Icon">
+                    </div>
+                </div>
+                
+                <div class="temperature-section">
+                    <div class="main-temp">
+                        <span id="temperature">--</span>
+                        <span class="temp-unit">°C</span>
+                    </div>
+                    <div class="temp-range">
+                        <span id="feels-like">Feels like --°C</span>
+                    </div>
+                </div>
+
+                <div class="weather-description">
+                    <h3 id="weather-main">Weather Condition</h3>
+                    <p id="weather-desc">Description</p>
+                </div>
+            </div>
+
+            <!-- Weather Details Cards -->
+            <div class="weather-details">
+                <div class="detail-card">
+                    <div class="detail-icon">💨</div>
+                    <div class="detail-info">
+                        <p class="detail-label">Wind Speed</p>
+                        <p class="detail-value" id="wind-speed">-- km/h</p>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">💧</div>
+                    <div class="detail-info">
+                        <p class="detail-label">Humidity</p>
+                        <p class="detail-value" id="humidity">--%</p>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">👁️</div>
+                    <div class="detail-info">
+                        <p class="detail-label">Visibility</p>
+                        <p class="detail-value" id="visibility">-- km</p>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">🌡️</div>
+                    <div class="detail-info">
+                        <p class="detail-label">Pressure</p>
+                        <p class="detail-value" id="pressure">-- hPa</p>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">🌅</div>
+                    <div class="detail-info">
+                        <p class="detail-label">Sunrise</p>
+                        <p class="detail-value" id="sunrise">--:--</p>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">🌇</div>
+                    <div class="detail-info">
+                        <p class="detail-label">Sunset</p>
+                        <p class="detail-value" id="sunset">--:--</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Info -->
+            <div class="additional-info">
+                <div class="info-card">
+                    <h4>Temperature Range</h4>
+                    <div class="temp-info">
+                        <span>High: <span id="temp-max">--°C</span></span>
+                        <span>Low: <span id="temp-min">--°C</span></span>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h4>Wind Information</h4>
+                    <div class="wind-info">
+                        <span>Direction: <span id="wind-direction">--°</span></span>
+                        <span>Gust: <span id="wind-gust">-- km/h</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Weather data provided by OpenWeatherMap API</p>
+            <p class="last-updated">Last updated: <span id="last-updated">--</span></p>
+        </footer>
+    </div>
+
+    <script src="A.js"></script>
+</body>
+</html>
